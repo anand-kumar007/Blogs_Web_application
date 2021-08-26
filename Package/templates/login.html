@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+<!-- override the blog content -->
+{% block content %}
+
+<div class="content-section">
+
+    <!-- action blanks says post to same router on which we 
+    are currently at -->
+    <form method="POST" action="" autocomplete="off">
+        <!-- for security -->
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Login</legend>
+
+
+            <div class="form-group">
+                <!-- label -->
+                {{form.email.label(class="form-control-label")}}
+                <!-- email -->
+                <!-- handle the errors in input filed using bootstrap's way -->
+                {% if form.email.errors %}
+
+                {{form.email(class="form-control form-control-lg is-invalid")}}
+
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                    <span>
+                        {{ error }}
+                    </span>
+                    {% endfor %}
+
+                </div>
+                {% else %}
+                <!-- email -->
+                {{form.email(class="form-control form-control-lg")}}
+
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <!-- label -->
+                {{form.password.label(class="form-control-label")}}
+                <!-- password -->
+                <!-- handle the errors in input filed using bootstrap's way -->
+                {% if form.password.errors %}
+
+                {{form.password(class="form-control form-control-lg is-invalid")}}
+
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                    <span>
+                        {{ error }}
+                    </span>
+                    {% endfor %}
+
+                </div>
+                {% else %}
+                <!-- email -->
+                {{form.password(class="form-control form-control-lg")}}
+
+                {% endif %}
+
+            </div>
+
+            <div class="form-check">
+                {{ form.remember(class="form-check-input") }}
+
+                {{ form.remember.label(class="form-check-label") }}
+
+            </div>
+        </fieldset>
+
+        <!-- submit button -->
+
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+
+            <small class="text-muted ml-2">
+                <a href="{{ url_for('reset_request') }}">forgot Password?</a>
+            </small>
+        </div>
+
+  
+
+    </form>
+</div>
+
+<!-- just to give look and feel of other sites -->
+
+<div class="border-top pt-3">
+    <small class="text-muted">
+        <!-- in url for we pass the name of the function to link with -->
+        Need an account ?
+        <a class="ml-2" href=" {{ url_for("register") }}">Sign Up Now</a>
+    </small>
+</div>
+
+{% endblock content %}
+<!-- saying just close the block which is content -->

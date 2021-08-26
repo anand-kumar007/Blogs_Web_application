@@ -1,0 +1,70 @@
+
+for form validation and all install 
+
+pip install flask-wtf
+
+
+============================
+SqlAlchamey( an ORM)
+============================
+
+Object–relational mapping (ORM, O/RM, and O/R mapping tool) in computer science is a programming technique for converting data between incompatible type systems using object-oriented programming languages
+
+with SqlAlchamey you can use different databases without changing the python code
+
+let's say for testing u are using sqlite and PostgreSQL, also known as Postgres, 
+as database in production then all you need to do is 
+
+just pass a different url for SqlAlchamey to connect to 
+
+and all other things for creating the database and all would be same 
+
+pip install flask-sqlalchemy
+
+we are using flask specific sqlalchemy rather than regualr one 
+cz it gives some really good features to work with python 
+
+Once we've imported it 
+we need to specfify the uri for database means 
+that's where the database would be located 
+
+good thign about sqlalchemy is that we can represent our data as classes 
+called models 
+
+each class would be table in database 
+
+======================================
+turn your app into package for avoiding
+various cyclic import errros of modules 
+
+To tell the python that your directory is a package
+just create a __init__.py file 
+
+========================================
+
+for hashing use flask-bcrypt
+
+>>> from flask_bcrypt import Bcrypt
+>>> bcrypt = Bcrypt()
+>>> bcrypt.generate_password_hash('Anan@')
+b'$2b$12$beIi..eut8T1pRQDZEEt.uIl.oUTeWj4o77b76QXtBYU3wvWfc09O'
+>>> bcrypt.generate_password_hash('Anand1234@').decode('utf-8')
+'$2b$12$WCiatxzjyzMwUjhZSklfw.xWU6a07jnBWrh3jRiMe3Jk.G8EwCaOS'
+
+everytime you'll get the different hash even for same value 
+
+--> decoding becomes almost impossible
+
+but since has changes everytime then how would be verify if the user 
+has entered the correct password 
+
+>>> hashed_pw = bcrypt.generate_password_hash('And1234@').decode('utf-8')
+>>> hashed_pw                                                               
+'$2b$12$sjVFySjHvj.VKKwH9Zuy/u47GEbfiJrq9gomecd8BxGQlxFQX8jMG'
+>>> bcrypt.check_password_hash(hashed_pw,'sa')
+False
+>>> bcrypt.check_password_hash(hashed_pw,'andfdaand1234@') 
+False
+>>> bcrypt.check_password_hash(hashed_pw,'And1234@') 
+True
+
