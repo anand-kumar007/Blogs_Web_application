@@ -1,3 +1,6 @@
+SocioApp
+_pycache_
+
 .DS_Store
 .env
 .flaskenv
