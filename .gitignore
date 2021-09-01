@@ -1,5 +1,5 @@
-SocioApp
-_pycache_
+/SocioApp
+/_pycache_
 
 .DS_Store
 .env
