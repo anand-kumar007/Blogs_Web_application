@@ -77,7 +77,7 @@
             {{ form.submit(class="btn btn-outline-info") }}
 
             <small class="text-muted ml-2">
-                <a href="{{ url_for('reset_request') }}">forgot Password?</a>
+                <a href="{{ url_for('users.reset_request') }}">forgot Password?</a>
             </small>
         </div>
 
@@ -92,7 +92,7 @@
     <small class="text-muted">
         <!-- in url for we pass the name of the function to link with -->
         Need an account ?
-        <a class="ml-2" href=" {{ url_for("register") }}">Sign Up Now</a>
+        <a class="ml-2" href=" {{ url_for("users.register") }}">Sign Up Now</a>
     </small>
 </div>
 
