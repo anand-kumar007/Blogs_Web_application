@@ -7,8 +7,6 @@ from flask_login import current_user
 from Package.models import User
 
 
-
-
 # class that'll inherit from FlaskForm
 class RegistrationForm(FlaskForm):
     username = StringField("Username",validators=[DataRequired(),Length(min=2,max=15)])
